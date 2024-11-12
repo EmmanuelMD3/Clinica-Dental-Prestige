@@ -11,6 +11,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import pckBakcend.Consulta;
 
 /**
  *
@@ -18,12 +19,13 @@ import java.util.regex.Pattern;
  */
 public class VtnAgendar_Cita extends javax.swing.JFrame
 {
+    private int posicion;
     public VtnAgendar_Cita()
     {
         initComponents();
         setIconImage(getIconImage());
     }
-    
+
     @Override
     public Image getIconImage()
     {
@@ -48,42 +50,53 @@ public class VtnAgendar_Cita extends javax.swing.JFrame
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        Nombre = new javax.swing.JTextField();
+        nombre = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        APaterno = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        AMaterno = new javax.swing.JTextField();
+        apellidoPaterno = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        Dia_1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        Mes_1 = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
-        Año_1 = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
-        Numero = new javax.swing.JTextField();
+        numero = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        Correo = new javax.swing.JTextField();
+        correo = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        Motivo = new javax.swing.JTextField();
+        motivo = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        Dia_2 = new javax.swing.JComboBox<>();
+        diaCita = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        Mes_2 = new javax.swing.JComboBox<>();
+        mesCita = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
-        Hora_1 = new javax.swing.JComboBox<>();
+        horaCita = new javax.swing.JComboBox<>();
         Aceptar = new javax.swing.JButton();
         Cancelar = new javax.swing.JButton();
         Aceptar1 = new javax.swing.JCheckBox();
         Aceptar2 = new javax.swing.JCheckBox();
         Salir = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        cve = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        dia = new javax.swing.JTextField();
+        mes = new javax.swing.JTextField();
+        anio = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        edad = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Clinica Dental Prestige");
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowOpened(java.awt.event.WindowEvent evt)
+            {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -116,64 +129,42 @@ public class VtnAgendar_Cita extends javax.swing.JFrame
         jLabel4.setText("Nombre:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
 
-        Nombre.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        Nombre.addKeyListener(new java.awt.event.KeyAdapter()
+        nombre.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        nombre.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyPressed(java.awt.event.KeyEvent evt)
             {
-                NombreKeyPressed(evt);
+                nombreKeyPressed(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt)
             {
-                NombreKeyTyped(evt);
+                nombreKeyTyped(evt);
             }
         });
-        jPanel1.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 220, -1));
+        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 220, -1));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel5.setText("Apellido Paterno:");
         jLabel5.setToolTipText("");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
 
-        APaterno.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        APaterno.addKeyListener(new java.awt.event.KeyAdapter()
+        apellidoPaterno.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        apellidoPaterno.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyPressed(java.awt.event.KeyEvent evt)
             {
-                APaternoKeyPressed(evt);
+                apellidoPaternoKeyPressed(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt)
             {
-                APaternoKeyTyped(evt);
+                apellidoPaternoKeyTyped(evt);
             }
         });
-        jPanel1.add(APaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 220, -1));
-
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel6.setText("Apellido Materno:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
-
-        AMaterno.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        AMaterno.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
-                AMaternoKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt)
-            {
-                AMaternoKeyTyped(evt);
-            }
-        });
-        jPanel1.add(AMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 220, -1));
+        jPanel1.add(apellidoPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 220, -1));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel7.setText("Fecha de Nacimiento:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, -1, -1));
-
-        Dia_1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        Dia_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));
-        jPanel1.add(Dia_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel8.setText("Dia:");
@@ -183,17 +174,9 @@ public class VtnAgendar_Cita extends javax.swing.JFrame
         jLabel9.setText("Mes:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, -1, -1));
 
-        Mes_1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        Mes_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", " " }));
-        jPanel1.add(Mes_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 80, -1));
-
         jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel10.setText("Año:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, -1, -1));
-
-        Año_1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        Año_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", " " }));
-        jPanel1.add(Año_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel11.setText("Datos personales");
@@ -204,29 +187,29 @@ public class VtnAgendar_Cita extends javax.swing.JFrame
         jLabel12.setText("Numero de Contacto:");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, -1, -1));
 
-        Numero.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        Numero.addKeyListener(new java.awt.event.KeyAdapter()
+        numero.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        numero.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyTyped(java.awt.event.KeyEvent evt)
             {
-                NumeroKeyTyped(evt);
+                numeroKeyTyped(evt);
             }
         });
-        jPanel1.add(Numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 260, -1));
+        jPanel1.add(numero, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 260, -1));
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel13.setText("Correo Electronico:");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, -1, -1));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
 
-        Correo.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        Correo.addKeyListener(new java.awt.event.KeyAdapter()
+        correo.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        correo.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyTyped(java.awt.event.KeyEvent evt)
             {
-                CorreoKeyTyped(evt);
+                correoKeyTyped(evt);
             }
         });
-        jPanel1.add(Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 260, -1));
+        jPanel1.add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 220, -1));
 
         jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel14.setText("Programación de Cita");
@@ -236,23 +219,23 @@ public class VtnAgendar_Cita extends javax.swing.JFrame
         jLabel15.setText("Motivo de Cita:");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, -1));
 
-        Motivo.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        Motivo.addKeyListener(new java.awt.event.KeyAdapter()
+        motivo.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        motivo.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyTyped(java.awt.event.KeyEvent evt)
             {
-                MotivoKeyTyped(evt);
+                motivoKeyTyped(evt);
             }
         });
-        jPanel1.add(Motivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 220, 30));
+        jPanel1.add(motivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 220, 30));
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel16.setText("Fecha y Hora Preferida:");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 170, -1));
 
-        Dia_2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        Dia_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));
-        jPanel1.add(Dia_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
+        diaCita.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        diaCita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));
+        jPanel1.add(diaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel17.setText("Dia:");
@@ -262,17 +245,17 @@ public class VtnAgendar_Cita extends javax.swing.JFrame
         jLabel18.setText("Mes:");
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, -1, -1));
 
-        Mes_2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        Mes_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", " " }));
-        jPanel1.add(Mes_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 80, -1));
+        mesCita.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        mesCita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", " " }));
+        jPanel1.add(mesCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 80, -1));
 
         jLabel19.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel19.setText("Hora:");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 430, -1, -1));
 
-        Hora_1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        Hora_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "9:00 a.m.", "9:30 a.m.", "10:00 a.m.", "10:30 a.m.", "11:00 a.m.", "11:30 a.m.", "12:00 p.m.", "12:30 p.m.", "1:00 p.m.", "1:30 p.m.", "2:00 p.m.", "2:30 p.m.", "3:00 p.m.", "3:30 p.m.", "4:00 p.m.", "4:30 p.m.", " " }));
-        jPanel1.add(Hora_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 450, 80, -1));
+        horaCita.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        horaCita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "9:00 a.m.", "9:30 a.m.", "10:00 a.m.", "10:30 a.m.", "11:00 a.m.", "11:30 a.m.", "12:00 p.m.", "12:30 p.m.", "1:00 p.m.", "1:30 p.m.", "2:00 p.m.", "2:30 p.m.", "3:00 p.m.", "3:30 p.m.", "4:00 p.m.", "4:30 p.m.", " " }));
+        jPanel1.add(horaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 450, 80, -1));
 
         Aceptar.setBackground(new java.awt.Color(153, 153, 255));
         Aceptar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -321,6 +304,71 @@ public class VtnAgendar_Cita extends javax.swing.JFrame
         });
         jPanel1.add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(572, 10, 110, -1));
 
+        jLabel20.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel20.setText("Ingrese su CVE:");
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 110, -1));
+
+        cve.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        cve.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                cveActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cve, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 100, -1));
+
+        jButton1.setBackground(new java.awt.Color(102, 102, 255));
+        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("BUSCAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 100, -1));
+
+        dia.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                diaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 60, -1));
+        jPanel1.add(mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 80, -1));
+        jPanel1.add(anio, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 80, -1));
+
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel6.setText("Edad:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, -1, -1));
+
+        edad.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        edad.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                edadActionPerformed(evt);
+            }
+        });
+        jPanel1.add(edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 260, -1));
+
+        jButton2.setBackground(new java.awt.Color(255, 102, 102));
+        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("CANCELAR CITA");
+        jButton2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 140, -1));
+
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 600));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 600));
@@ -331,45 +379,38 @@ public class VtnAgendar_Cita extends javax.swing.JFrame
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_AceptarActionPerformed
     {//GEN-HEADEREND:event_AceptarActionPerformed
-        String emailIngresado = Correo.getText();
-        String NumeroInput = Numero.getText();
-        String emailPattern = "^[a-zA-Z0-9._%+-]+@(gmail|hotmail|outlook|yahoo)\\.[a-zA-Z]{2,}$";
-        String NumeroPattern = "^[0-9]{10}$";
-
-        Pattern emailPat = Pattern.compile(emailPattern);
-        Matcher emailMatcher = emailPat.matcher(emailIngresado);
-        
-        Pattern NumeroPat = Pattern.compile(NumeroPattern);
-        Matcher NumeroMatcher = NumeroPat.matcher(NumeroInput);
-
-        boolean isValidEmail = emailMatcher.matches();
-         boolean isValidNnumero = NumeroMatcher.matches();
-        
-        if (isValidEmail && isValidNnumero)
+        try
         {
             if (Aceptar1.isSelected() && Aceptar2.isSelected())
             {
-                Mensaje.exito(this, "Cita agendada con exito"); 
-            }
-            else
+                String numReferencia = pckBakcend.PrbClinicaDental.generarReferenciaPago();
+
+                String diaStr = this.diaCita.getSelectedItem().toString();
+                int diaC = Integer.parseInt(diaStr);
+
+                String mesC = this.mesCita.getSelectedItem().toString();
+
+                String hora = this.horaCita.getSelectedItem().toString();
+
+                int edadIngresada = Integer.parseInt(edad.getText());
+
+                Consulta nuevaConsulta = new Consulta(nombre.getText(), apellidoPaterno.getText(), edadIngresada, numero.getText(), correo.getText(), motivo.getText(), diaC, mesC, hora, false, numReferencia, false);
+                VtnIncio_Secion.consulta = pckBakcend.PrbClinicaDental.insertaConsulta(VtnIncio_Secion.consulta, nuevaConsulta, posicion);
+                Mensaje.exito(this, "Consulta Registrada Con Exito\nNumero de Referencia: " + numReferencia);
+                
+                archivos.Archivos.guardaArr(this, VtnIncio_Secion.consulta, "DatosMatriz.dat");
+
+                System.out.println(nuevaConsulta);
+                
+                CtrlInterfaz.limpia(nombre,apellidoPaterno, correo, dia, mes, anio, numero, edad, motivo,diaCita, mesCita, horaCita);
+            } else
             {
                 Mensaje.error(this, "Acepte los acuerdos de privacidad");
             }
-        }
-        else
+        } catch (Exception e)
         {
-            Mensaje.error(this, "Correo electrónico y/o número de celular inválido");
-            CtrlInterfaz.limpia(Correo,Numero);
+            System.out.println("Error..." + e.toString());
         }
-        
-        /*if (Aceptar1.isSelected() && Aceptar2.isSelected())
-        {
-            Mensaje.exito(this, "Cita agendada con exito");
-        }
-        else
-        {
-            Mensaje.error(this, "Acepte los acuerdos de privacidad");
-        }*/
     }//GEN-LAST:event_AceptarActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_SalirActionPerformed
@@ -379,65 +420,101 @@ public class VtnAgendar_Cita extends javax.swing.JFrame
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_CancelarActionPerformed
     {//GEN-HEADEREND:event_CancelarActionPerformed
-        CtrlInterfaz.limpia(Nombre,APaterno,AMaterno, Numero, Correo, Dia_1, Mes_1, Año_1, Dia_2, Mes_2, Hora_1, Motivo, Aceptar1, Aceptar2);
+        CtrlInterfaz.limpia(nombre, apellidoPaterno, numero, correo, dia, mes, anio, diaCita, mesCita, horaCita, motivo, Aceptar1, Aceptar2);
     }//GEN-LAST:event_CancelarActionPerformed
 
-    private void NombreKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_NombreKeyTyped
-    {//GEN-HEADEREND:event_NombreKeyTyped
+    private void nombreKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_nombreKeyTyped
+    {//GEN-HEADEREND:event_nombreKeyTyped
         Validaciones.validaAlfabeticos(evt);
-    }//GEN-LAST:event_NombreKeyTyped
+    }//GEN-LAST:event_nombreKeyTyped
 
-    private void APaternoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_APaternoKeyTyped
-    {//GEN-HEADEREND:event_APaternoKeyTyped
+    private void apellidoPaternoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_apellidoPaternoKeyTyped
+    {//GEN-HEADEREND:event_apellidoPaternoKeyTyped
         Validaciones.validaAlfabeticos(evt);
-    }//GEN-LAST:event_APaternoKeyTyped
+    }//GEN-LAST:event_apellidoPaternoKeyTyped
 
-    private void AMaternoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_AMaternoKeyTyped
-    {//GEN-HEADEREND:event_AMaternoKeyTyped
+    private void motivoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_motivoKeyTyped
+    {//GEN-HEADEREND:event_motivoKeyTyped
         Validaciones.validaAlfabeticos(evt);
-        Validaciones.enterCadenaNoVacia(this, evt, Motivo, Aceptar);
-    }//GEN-LAST:event_AMaternoKeyTyped
+    }//GEN-LAST:event_motivoKeyTyped
 
-    private void MotivoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_MotivoKeyTyped
-    {//GEN-HEADEREND:event_MotivoKeyTyped
-        Validaciones.validaAlfabeticos(evt);
-    }//GEN-LAST:event_MotivoKeyTyped
+    private void nombreKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_nombreKeyPressed
+    {//GEN-HEADEREND:event_nombreKeyPressed
+        Validaciones.enterCadenaNoVacia(this, evt, nombre, apellidoPaterno);
+    }//GEN-LAST:event_nombreKeyPressed
 
-    private void NombreKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_NombreKeyPressed
-    {//GEN-HEADEREND:event_NombreKeyPressed
-        Validaciones.enterCadenaNoVacia(this, evt, Nombre, APaterno);
-    }//GEN-LAST:event_NombreKeyPressed
+    private void apellidoPaternoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_apellidoPaternoKeyPressed
+    {//GEN-HEADEREND:event_apellidoPaternoKeyPressed
 
-    private void APaternoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_APaternoKeyPressed
-    {//GEN-HEADEREND:event_APaternoKeyPressed
-        Validaciones.enterCadenaNoVacia(this, evt, APaterno, AMaterno);
-    }//GEN-LAST:event_APaternoKeyPressed
+    }//GEN-LAST:event_apellidoPaternoKeyPressed
 
-    private void AMaternoKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_AMaternoKeyPressed
-    {//GEN-HEADEREND:event_AMaternoKeyPressed
-        Validaciones.enterCadenaNoVacia(this, evt, AMaterno, Numero);
-    }//GEN-LAST:event_AMaternoKeyPressed
+    private void numeroKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_numeroKeyTyped
+    {//GEN-HEADEREND:event_numeroKeyTyped
+        Validaciones.enterCadenaNoVacia(this, evt, numero, correo);
+    }//GEN-LAST:event_numeroKeyTyped
 
-    private void NumeroKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_NumeroKeyTyped
-    {//GEN-HEADEREND:event_NumeroKeyTyped
-        Validaciones.enterCadenaNoVacia(this, evt, Numero, Correo);
-    }//GEN-LAST:event_NumeroKeyTyped
+    private void correoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_correoKeyTyped
+    {//GEN-HEADEREND:event_correoKeyTyped
+        Validaciones.enterCadenaNoVacia(this, evt, correo, motivo);
+    }//GEN-LAST:event_correoKeyTyped
 
-    private void CorreoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_CorreoKeyTyped
-    {//GEN-HEADEREND:event_CorreoKeyTyped
-        Validaciones.enterCadenaNoVacia(this, evt, Correo, Motivo);
-    }//GEN-LAST:event_CorreoKeyTyped
+    private void formWindowOpened(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowOpened
+    {//GEN-HEADEREND:event_formWindowOpened
+        CtrlInterfaz.habilita(false, nombre, apellidoPaterno, numero, correo, dia, mes, anio, motivo, diaCita, mesCita, horaCita, Aceptar, edad);
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
+    {//GEN-HEADEREND:event_jButton1ActionPerformed
+        try
+        {
+            int cveIngresado = Integer.parseInt(this.cve.getText());
+            int posUsuario = pckBakcend.PrbClinicaDental.buscarPosCVE(VtnIncio_Secion.usuario, cveIngresado);
+            posicion = posUsuario;
+            if (posUsuario != -1)
+            {
+                CtrlInterfaz.habilita(true, nombre, apellidoPaterno, numero, correo, dia, mes, anio, motivo, diaCita, mesCita, horaCita, Aceptar, edad);
+                nombre.setText(VtnIncio_Secion.usuario[posUsuario].getNombre());
+                apellidoPaterno.setText(VtnIncio_Secion.usuario[posUsuario].getApellido());
+                correo.setText(VtnIncio_Secion.usuario[posUsuario].getCorreo());
+                dia.setText(String.valueOf(VtnIncio_Secion.usuario[posUsuario].getDia()));
+                mes.setText(VtnIncio_Secion.usuario[posUsuario].getMes());
+                anio.setText(String.valueOf(VtnIncio_Secion.usuario[posUsuario].getAnio()));   
+            } else
+            {
+                Mensaje.error(this, "CVE No Encontrado");
+                CtrlInterfaz.limpia(cve);
+            }
+        } catch (Exception e)
+        {
+            System.out.println("Error..." + e.toString());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void diaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_diaActionPerformed
+    {//GEN-HEADEREND:event_diaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_diaActionPerformed
+
+    private void edadActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_edadActionPerformed
+    {//GEN-HEADEREND:event_edadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edadActionPerformed
+
+    private void cveActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cveActionPerformed
+    {//GEN-HEADEREND:event_cveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cveActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton2ActionPerformed
+    {//GEN-HEADEREND:event_jButton2ActionPerformed
+        new VtnCancelarCita().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[])
     {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try
         {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
@@ -448,56 +525,38 @@ public class VtnAgendar_Cita extends javax.swing.JFrame
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex)
-        {
-            java.util.logging.Logger.getLogger(VtnAgendar_Cita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
-        {
-            java.util.logging.Logger.getLogger(VtnAgendar_Cita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
-        {
-            java.util.logging.Logger.getLogger(VtnAgendar_Cita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+        } catch (Exception ex)
         {
             java.util.logging.Logger.getLogger(VtnAgendar_Cita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable()
         {
             public void run()
             {
+                int posicion = 0; // Valor predeterminado
                 new VtnAgendar_Cita().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AMaterno;
-    private javax.swing.JTextField APaterno;
     private javax.swing.JButton Aceptar;
     private javax.swing.JCheckBox Aceptar1;
     private javax.swing.JCheckBox Aceptar2;
-    private javax.swing.JComboBox<String> Año_1;
     private javax.swing.JButton Cancelar;
-    private javax.swing.JTextField Correo;
-    private javax.swing.JComboBox<String> Dia_1;
-    private javax.swing.JComboBox<String> Dia_2;
-    private javax.swing.JComboBox<String> Hora_1;
-    private javax.swing.JComboBox<String> Mes_1;
-    private javax.swing.JComboBox<String> Mes_2;
-    private javax.swing.JTextField Motivo;
-    private javax.swing.JTextField Nombre;
-    private javax.swing.JTextField Numero;
     private javax.swing.JButton Salir;
+    private javax.swing.JTextField anio;
+    private javax.swing.JTextField apellidoPaterno;
+    private javax.swing.JTextField correo;
+    private javax.swing.JTextField cve;
+    private javax.swing.JTextField dia;
+    private javax.swing.JComboBox<String> diaCita;
+    private javax.swing.JTextField edad;
+    private javax.swing.JComboBox<String> horaCita;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -510,6 +569,7 @@ public class VtnAgendar_Cita extends javax.swing.JFrame
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -521,5 +581,10 @@ public class VtnAgendar_Cita extends javax.swing.JFrame
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField mes;
+    private javax.swing.JComboBox<String> mesCita;
+    private javax.swing.JTextField motivo;
+    private javax.swing.JTextField nombre;
+    private javax.swing.JTextField numero;
     // End of variables declaration//GEN-END:variables
 }

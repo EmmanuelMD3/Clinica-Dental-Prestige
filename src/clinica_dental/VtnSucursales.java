@@ -1,29 +1,37 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package clinica_dental;
 
+import Mapa.EstiloMapa;
 import cjb.ci.CtrlInterfaz;
 import cjb.ci.Mensaje;
 import java.awt.Image;
 import java.awt.Toolkit;
 
+import javax.swing.*;
+import java.awt.BorderLayout;
+
 /**
  *
  * @author chemo
  */
-public class VtnSucursales extends javax.swing.JFrame
-{
-    public VtnSucursales()
-    {
+public class VtnSucursales extends javax.swing.JFrame {
+
+    public VtnSucursales() {
         initComponents();
         setIconImage(getIconImage());
+        agregarMapa();
+
     }
-    
+
+    private void agregarMapa() {
+        EstiloMapa mapa = new EstiloMapa();
+        jPanel1.setLayout(new BorderLayout());
+        jPanel1.add(mapa, BorderLayout.CENTER);
+        jPanel1.revalidate();
+        jPanel1.repaint();
+    }
+
     @Override
-    public Image getIconImage()
-    {
+    public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/Logo.png"));
         return retValue;
     }
@@ -35,8 +43,7 @@ public class VtnSucursales extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -45,10 +52,6 @@ public class VtnSucursales extends javax.swing.JFrame
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         Salir = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Clinica Dental Prestige");
@@ -85,26 +88,12 @@ public class VtnSucursales extends javax.swing.JFrame
         Salir.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         Salir.setForeground(new java.awt.Color(255, 255, 255));
         Salir.setText("SALIR");
-        Salir.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SalirActionPerformed(evt);
             }
         });
         jPanel1.add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(572, 10, 110, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/marcador-de-posicion.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, -1));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/marcador-de-posicion.png"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, -1, -1));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/marcador-de-posicion.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, -1, -1));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Toluca.jpg"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 120, -1, 480));
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 600));
 
@@ -117,40 +106,32 @@ public class VtnSucursales extends javax.swing.JFrame
     private void SalirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_SalirActionPerformed
     {//GEN-HEADEREND:event_SalirActionPerformed
         dispose();
-        
+
     }//GEN-LAST:event_SalirActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex)
-        {
+        } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(VtnSucursales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
-        {
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(VtnSucursales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
-        {
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(VtnSucursales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VtnSucursales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -171,10 +152,8 @@ public class VtnSucursales extends javax.swing.JFrame
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
                 new VtnSucursales().setVisible(true);
             }
         });
@@ -185,10 +164,6 @@ public class VtnSucursales extends javax.swing.JFrame
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

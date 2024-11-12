@@ -62,6 +62,10 @@ public class VtnPrincipal extends javax.swing.JFrame
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Clinica Dental Prestige");
@@ -98,7 +102,7 @@ public class VtnPrincipal extends javax.swing.JFrame
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/foto clientes.jpeg"))); // NOI18N
-        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 520, 340));
+        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 530, 340));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -165,7 +169,7 @@ public class VtnPrincipal extends javax.swing.JFrame
         jLabel16.setText("bienestar y la salud de la sociedad mexicana, ofrecemos alternaticas con tecnología de punta para garantizar la calidad de nuestro servicio.");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, -1, -1));
 
-        jLabel21.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel21.setText("Agendar Cita");
         jLabel21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel21.addMouseListener(new java.awt.event.MouseAdapter()
@@ -175,9 +179,9 @@ public class VtnPrincipal extends javax.swing.JFrame
                 jLabel21MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, -1, -1));
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
 
-        jLabel22.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel22.setText("Sucursales");
         jLabel22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel22.addMouseListener(new java.awt.event.MouseAdapter()
@@ -187,9 +191,9 @@ public class VtnPrincipal extends javax.swing.JFrame
                 jLabel22MousePressed(evt);
             }
         });
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, -1, -1));
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, -1, -1));
 
-        jLabel20.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel20.setText("Formas de pago");
         jLabel20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel20.addMouseListener(new java.awt.event.MouseAdapter()
@@ -199,11 +203,37 @@ public class VtnPrincipal extends javax.swing.JFrame
                 jLabel20MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 40, -1, -1));
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, -1, -1));
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
+        jLabel23.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel23.setText("Historial Consultas");
+        jLabel23.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jLabel23MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 20, 170, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 600));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 600));
+
+        jMenu1.setText("Informacion");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jMenu1MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
         setLocationRelativeTo(null);
@@ -223,6 +253,16 @@ public class VtnPrincipal extends javax.swing.JFrame
     {//GEN-HEADEREND:event_jLabel22MousePressed
         new VtnSucursales().setVisible(true);
     }//GEN-LAST:event_jLabel22MousePressed
+
+    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel23MouseClicked
+    {//GEN-HEADEREND:event_jLabel23MouseClicked
+        new VtnMostrarConsultas().setVisible(true);
+    }//GEN-LAST:event_jLabel23MouseClicked
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenu1MouseClicked
+    {//GEN-HEADEREND:event_jMenu1MouseClicked
+        new VtnInformacion().setVisible(true);
+    }//GEN-LAST:event_jMenu1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -286,6 +326,7 @@ public class VtnPrincipal extends javax.swing.JFrame
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -293,6 +334,9 @@ public class VtnPrincipal extends javax.swing.JFrame
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -8,7 +8,6 @@ import java.io.Serializable;
  */
 public class Informacion implements Serializable
 {
-
     private String nombre;
     private String apellido;
     private int dia;

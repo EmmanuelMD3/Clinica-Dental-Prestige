@@ -9,8 +9,10 @@ import cjb.ci.Validaciones;
 import cjb.ci.Mensaje;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import pckBakcend.PagoRealizado;
 
 /**
  *
@@ -18,12 +20,13 @@ import java.util.regex.Pattern;
  */
 public class VtnMetodo_de_pago extends javax.swing.JFrame
 {
+
     public VtnMetodo_de_pago()
     {
         initComponents();
         setIconImage(getIconImage());
     }
-    
+
     @Override
     public Image getIconImage()
     {
@@ -50,7 +53,7 @@ public class VtnMetodo_de_pago extends javax.swing.JFrame
         Salir = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        Nombre = new javax.swing.JTextField();
+        referencia = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         tarjeta = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -60,9 +63,9 @@ public class VtnMetodo_de_pago extends javax.swing.JFrame
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        Mes = new javax.swing.JComboBox<>();
+        mes = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        Año = new javax.swing.JComboBox<>();
+        anio = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         cvv = new javax.swing.JTextField();
@@ -74,8 +77,10 @@ public class VtnMetodo_de_pago extends javax.swing.JFrame
         jLabel21 = new javax.swing.JLabel();
         Aceptar_1 = new javax.swing.JCheckBox();
         Aceptar_2 = new javax.swing.JCheckBox();
-        Pago = new javax.swing.JButton();
-        Cancelar = new javax.swing.JButton();
+        pago = new javax.swing.JButton();
+        cancelar = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
+        nombre = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Clinica Dental Prestige");
@@ -124,32 +129,32 @@ public class VtnMetodo_de_pago extends javax.swing.JFrame
 
         jLabel20.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel20.setText("Información de facturación");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, 30));
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, 30));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel4.setText("Nombre del titular:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, 20));
 
-        Nombre.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        Nombre.addActionListener(new java.awt.event.ActionListener()
+        referencia.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        referencia.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                NombreActionPerformed(evt);
+                referenciaActionPerformed(evt);
             }
         });
-        Nombre.addKeyListener(new java.awt.event.KeyAdapter()
+        referencia.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyPressed(java.awt.event.KeyEvent evt)
             {
-                NombreKeyPressed(evt);
+                referenciaKeyPressed(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt)
             {
-                NombreKeyTyped(evt);
+                referenciaKeyTyped(evt);
             }
         });
-        jPanel1.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 300, -1));
+        jPanel1.add(referencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 300, -1));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel5.setText("Numero de tarjeta:");
@@ -188,16 +193,16 @@ public class VtnMetodo_de_pago extends javax.swing.JFrame
         jLabel12.setText("Mes:");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, -1, -1));
 
-        Mes.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        Mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
-        jPanel1.add(Mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 70, -1));
+        mes.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jPanel1.add(mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 70, -1));
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel13.setText("Año:");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
 
-        Año.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2024", "2025", "2026", "2027", "2028", "2029", "2030" }));
-        jPanel1.add(Año, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
+        anio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2024", "2025", "2026", "2027", "2028", "2029", "2030" }));
+        jPanel1.add(anio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel14.setText("CVV:");
@@ -258,31 +263,44 @@ public class VtnMetodo_de_pago extends javax.swing.JFrame
         Aceptar_2.setText("Acepto términos y ccondiciones");
         jPanel1.add(Aceptar_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, -1, -1));
 
-        Pago.setBackground(new java.awt.Color(153, 153, 255));
-        Pago.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        Pago.setForeground(new java.awt.Color(255, 255, 255));
-        Pago.setText("Realizar Pago");
-        Pago.addActionListener(new java.awt.event.ActionListener()
+        pago.setBackground(new java.awt.Color(153, 153, 255));
+        pago.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        pago.setForeground(new java.awt.Color(255, 255, 255));
+        pago.setText("Realizar Pago");
+        pago.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                PagoActionPerformed(evt);
+                pagoActionPerformed(evt);
             }
         });
-        jPanel1.add(Pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 470, 140, 30));
+        jPanel1.add(pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 470, 140, 30));
 
-        Cancelar.setBackground(new java.awt.Color(255, 102, 153));
-        Cancelar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        Cancelar.setForeground(new java.awt.Color(255, 255, 255));
-        Cancelar.setText("Cancelar");
-        Cancelar.addActionListener(new java.awt.event.ActionListener()
+        cancelar.setBackground(new java.awt.Color(255, 102, 153));
+        cancelar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        cancelar.setText("Cancelar");
+        cancelar.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                CancelarActionPerformed(evt);
+                cancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, 140, 30));
+        jPanel1.add(cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, 140, 30));
+
+        jLabel22.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel22.setText("Numero de Referencia:");
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+
+        nombre.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                nombreActionPerformed(evt);
+            }
+        });
+        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 300, 30));
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 600));
 
@@ -295,82 +313,114 @@ public class VtnMetodo_de_pago extends javax.swing.JFrame
     private void SalirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_SalirActionPerformed
     {//GEN-HEADEREND:event_SalirActionPerformed
         dispose();
-        new VtnPrincipal().setVisible(true);
     }//GEN-LAST:event_SalirActionPerformed
 
-    private void NombreActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_NombreActionPerformed
-    {//GEN-HEADEREND:event_NombreActionPerformed
+    private void referenciaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_referenciaActionPerformed
+    {//GEN-HEADEREND:event_referenciaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NombreActionPerformed
+    }//GEN-LAST:event_referenciaActionPerformed
 
     private void cvvActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cvvActionPerformed
     {//GEN-HEADEREND:event_cvvActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cvvActionPerformed
 
-    private void PagoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_PagoActionPerformed
-    {//GEN-HEADEREND:event_PagoActionPerformed
-        String tarjetaIngresada = tarjeta.getText();
-        String tarjetaPattern = "^[0-9]{16}$";
-        
-        String cvvIngresada = cvv.getText();
-        String cvvPattern = "^[0-9]{3}$";
-        
-        Pattern tarjetaPat = Pattern.compile(tarjetaPattern);
-        Matcher tarjetaMatcher = tarjetaPat.matcher(tarjetaIngresada);
-        
-        Pattern cvvPat = Pattern.compile(cvvPattern);
-        Matcher cvvMatcher = cvvPat.matcher(cvvIngresada);
-        
-        boolean isValidTarjeta = tarjetaMatcher.matches();
-        boolean isValidcvv = cvvMatcher.matches();
-        
-        if (isValidTarjeta && isValidcvv)
+    private void pagoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_pagoActionPerformed
+    {//GEN-HEADEREND:event_pagoActionPerformed
+        try
         {
-            if (Aceptar_1.isSelected() && Aceptar_2.isSelected())
+            String tarjetaIngresada = tarjeta.getText();
+            String tarjetaPattern = "^[0-9]{16}$";
+
+            String cvvIngresada = cvv.getText();
+            String cvvPattern = "^[0-9]{3}$";
+
+            Pattern tarjetaPat = Pattern.compile(tarjetaPattern);
+            Matcher tarjetaMatcher = tarjetaPat.matcher(tarjetaIngresada);
+
+            Pattern cvvPat = Pattern.compile(cvvPattern);
+            Matcher cvvMatcher = cvvPat.matcher(cvvIngresada);
+
+            boolean isValidTarjeta = tarjetaMatcher.matches();
+            boolean isValidcvv = cvvMatcher.matches();
+
+            String numReferencia = referencia.getText();
+            String nombreTitular = nombre.getText();
+            String tarjeta = tarjetaIngresada;
+            String mesSeleccionado = (String) mes.getSelectedItem();
+            String anioSeleccionadoString = (String) anio.getSelectedItem();
+            int anioSeleccionado = Integer.parseInt(anioSeleccionadoString); // Conversión de String a int
+            int cvvIngresado = Integer.parseInt(cvv.getText());
+            Date fechaActual = obtenerFechaActual();
+
+            if (VtnIncio_Secion.consulta != null)
             {
-                Mensaje.exito(this, "Pago Realizado con Exito");
-            }
-            else
+                for (int i = 0; i < VtnIncio_Secion.consulta.length; i++)
+                {
+                    if (VtnIncio_Secion.consulta[i] != null)
+                    { // Verifica que consulta[i] no sea null
+                        for (int j = 0; j < VtnIncio_Secion.consulta[i].length; j++)
+                        {
+                            if (VtnIncio_Secion.consulta[i][j] != null
+                                    && VtnIncio_Secion.consulta[i][j].getNumeroDeReferencia().equals(numReferencia))
+                            {
+
+                                if (isValidTarjeta && isValidcvv)
+                                {
+                                    if (Aceptar_1.isSelected() && Aceptar_2.isSelected())
+                                    {
+                                        PagoRealizado nuevoPago = new PagoRealizado(numReferencia, fechaActual, nombreTitular, tarjeta, mesSeleccionado, anioSeleccionado, cvvIngresado);
+                                        VtnIncio_Secion.consulta[i][j].setEstatusPago(true);
+                                        Mensaje.exito(this, "Pago Realizado Con Exito");
+                                        System.out.println(nuevoPago);
+                                        VtnIncio_Secion.pagoRealizado = pckBakcend.PrbClinicaDental.insertaPagos(VtnIncio_Secion.pagoRealizado, nuevoPago, i);
+                                        archivos.Archivos.guardaArr(this, VtnIncio_Secion.pagoRealizado, "DatosPagos.dat");
+                                        archivos.Archivos.guardaArr(this, VtnIncio_Secion.consulta, "DatosMatriz.dat");
+                                    } else
+                                    {
+                                        Mensaje.error(this, "Acepte los derechos de privacidad");
+                                    }
+                                } else
+                                {
+                                    Mensaje.error(this, "Numero de tarjeta y/o CVV invalido");
+                                    CtrlInterfaz.limpia(this.tarjeta, cvv);
+                                }
+                            }
+                        }
+                    }
+                }
+            } else
             {
-                Mensaje.error(this, "Acepte los derechos de privacidad");
+                Mensaje.error(this, "El Usuario No Tiene Consultas Registradas");
+                CtrlInterfaz.limpia(referencia, nombre, this.tarjeta, mes, anio, cvv);
+                Aceptar_1.setSelected(false);
+                Aceptar_2.setSelected(false);
             }
-        } else
+        } catch (Exception e)
         {
-            Mensaje.error(this, "Numero de tarjeta y/o cvv invalido");
+            System.out.println("Error..." + e.toString());
         }
-        
-        
-        
-        
-        /*if (Aceptar_1.isSelected() && Aceptar_2.isSelected())
-        {
-            
-        } else
-        {
-            Mensaje.error(this, "Acepte los terminos y condiciones");
-        }*/
-    }//GEN-LAST:event_PagoActionPerformed
+    }//GEN-LAST:event_pagoActionPerformed
 
-    private void CancelarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_CancelarActionPerformed
-    {//GEN-HEADEREND:event_CancelarActionPerformed
-        CtrlInterfaz.limpia(Nombre, tarjeta, Mes, Año, Aceptar_1, Aceptar_2, cvv);
-    }//GEN-LAST:event_CancelarActionPerformed
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cancelarActionPerformed
+    {//GEN-HEADEREND:event_cancelarActionPerformed
+        CtrlInterfaz.limpia(referencia, tarjeta, mes, anio, Aceptar_1, Aceptar_2, cvv);
+    }//GEN-LAST:event_cancelarActionPerformed
 
-    private void NombreKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_NombreKeyTyped
-    {//GEN-HEADEREND:event_NombreKeyTyped
-        Validaciones.validaAlfabeticos(evt);
-    }//GEN-LAST:event_NombreKeyTyped
+    private void referenciaKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_referenciaKeyTyped
+    {//GEN-HEADEREND:event_referenciaKeyTyped
+
+    }//GEN-LAST:event_referenciaKeyTyped
 
     private void tarjetaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_tarjetaActionPerformed
     {//GEN-HEADEREND:event_tarjetaActionPerformed
-        
+
     }//GEN-LAST:event_tarjetaActionPerformed
 
-    private void NombreKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_NombreKeyPressed
-    {//GEN-HEADEREND:event_NombreKeyPressed
-        Validaciones.enterCadenaNoVacia(this, evt, Nombre, tarjeta);
-    }//GEN-LAST:event_NombreKeyPressed
+    private void referenciaKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_referenciaKeyPressed
+    {//GEN-HEADEREND:event_referenciaKeyPressed
+        Validaciones.enterCadenaNoVacia(this, evt, referencia, tarjeta);
+    }//GEN-LAST:event_referenciaKeyPressed
 
     private void cvvKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_cvvKeyPressed
     {//GEN-HEADEREND:event_cvvKeyPressed
@@ -381,6 +431,16 @@ public class VtnMetodo_de_pago extends javax.swing.JFrame
     {//GEN-HEADEREND:event_cvvKeyTyped
 
     }//GEN-LAST:event_cvvKeyTyped
+
+    private void nombreActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_nombreActionPerformed
+    {//GEN-HEADEREND:event_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreActionPerformed
+
+    public static Date obtenerFechaActual()
+    {
+        return new Date(); // Devuelve la fecha actual
+    }
 
     /**
      * @param args the command line arguments
@@ -445,12 +505,9 @@ public class VtnMetodo_de_pago extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox Aceptar_1;
     private javax.swing.JCheckBox Aceptar_2;
-    private javax.swing.JComboBox<String> Año;
-    private javax.swing.JButton Cancelar;
-    private javax.swing.JComboBox<String> Mes;
-    private javax.swing.JTextField Nombre;
-    private javax.swing.JButton Pago;
     private javax.swing.JButton Salir;
+    private javax.swing.JComboBox<String> anio;
+    private javax.swing.JButton cancelar;
     private javax.swing.JTextField cvv;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -466,6 +523,7 @@ public class VtnMetodo_de_pago extends javax.swing.JFrame
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -477,6 +535,10 @@ public class VtnMetodo_de_pago extends javax.swing.JFrame
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JComboBox<String> mes;
+    private javax.swing.JTextField nombre;
+    private javax.swing.JButton pago;
+    private javax.swing.JTextField referencia;
     private javax.swing.JTextField tarjeta;
     // End of variables declaration//GEN-END:variables
 }

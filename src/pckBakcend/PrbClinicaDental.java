@@ -496,6 +496,18 @@ public class PrbClinicaDental
         }
         return -1;
     }
+    
+    public static int buscarPosCVE(Usuario[] usuario, int cve)
+    {
+        for (int i = 0; i < usuario.length; i++)
+        {
+            if (usuario[i].cve() == cve)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
 
     public static void cambiarContrasenia(Usuario[] usuario)
     {
@@ -609,7 +621,7 @@ public class PrbClinicaDental
 
             for (int i = 0; i < usuarios.length; i++)
             {
-                if (usuarios[i].getNoSocial() == numeroSocial)
+                if (usuarios[i].cve() == numeroSocial)
                 {
                     usuarioEncontrado = true;
                     System.out.println("Consultas del usuario: " + usuarios[i].getNombre() + " " + usuarios[i].getApellido());

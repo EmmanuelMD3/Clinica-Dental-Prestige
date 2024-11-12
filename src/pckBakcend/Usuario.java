@@ -14,31 +14,47 @@ public class Usuario extends Informacion implements Serializable
     {
     }
 
-    public Usuario(int noSocial, String nombre, String apellido, int dia, String mes, int anio, String sexo, String correo, String contraseña)
+    public Usuario(int cve, String nombre, String apellido, int dia, String mes, int anio, String sexo, String correo, String contraseña)
     {
         super(nombre, apellido, dia, mes, anio, sexo, correo, contraseña);
-        this.cve = noSocial;
+        this.cve = cve;
     }
 
     /**
      * @return the noSocial
      */
-    public int getNoSocial()
+    public int cve()
     {
-        return cve;
+        return getCve();
     }
 
     /**
-     * @param noSocial the noSocial to set
+     * @param cve the noSocial to set
      */
-    public void setNoSocial(int noSocial)
+    public void cve(int cve)
     {
-        this.cve = noSocial;
+        this.setCve(cve);
     }
 
     @Override
     public String toString()
     {
-        return super.toString() + "Usuario{" + "noSocial=" + cve + '}';
+        return super.toString() + "Usuario{" + "noSocial=" + getCve() + '}';
+    }
+
+    /**
+     * @return the cve
+     */
+    public int getCve()
+    {
+        return cve;
+    }
+
+    /**
+     * @param cve the cve to set
+     */
+    public void setCve(int cve)
+    {
+        this.cve = cve;
     }
 }
