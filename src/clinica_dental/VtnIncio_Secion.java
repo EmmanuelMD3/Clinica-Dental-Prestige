@@ -28,13 +28,13 @@ public class VtnIncio_Secion extends javax.swing.JFrame
     public VtnIncio_Secion()
     {
         initComponents();
-
         setIconImage(getIconImage());
 
     }
 
     String correoAdmin = "Admin@gmail.com";
     String contraAdmin = "Admin";
+
     private int posicionUsuario = -1;
 
     public static Usuario usuario[] = null;
@@ -94,8 +94,8 @@ public class VtnIncio_Secion extends javax.swing.JFrame
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel3.setText("E-mail/Número de Celular");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, -1, 20));
+        jLabel3.setText("E-mail");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, 20));
 
         correo.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel2.add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 280, -1));
@@ -178,7 +178,7 @@ public class VtnIncio_Secion extends javax.swing.JFrame
             if (isValidEmail && correoIngresado.equals(correoAdmin) && contraIngresada.equals(contraAdmin))
             {
                 Mensaje.exito(this, "Inicio de Sesión Como Administrador Exitoso");
-                new VtnMenuAdmin().setVisible(true);
+                new VtnPrincipalAdmin().setVisible(true);
                 dispose();
             } else
             {

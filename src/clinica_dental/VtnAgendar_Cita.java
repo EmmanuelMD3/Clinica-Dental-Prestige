@@ -234,7 +234,7 @@ public class VtnAgendar_Cita extends javax.swing.JFrame
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 170, -1));
 
         diaCita.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        diaCita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", " " }));
+        diaCita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         jPanel1.add(diaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -246,7 +246,7 @@ public class VtnAgendar_Cita extends javax.swing.JFrame
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, -1, -1));
 
         mesCita.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        mesCita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", " " }));
+        mesCita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         jPanel1.add(mesCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 80, -1));
 
         jLabel19.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -254,7 +254,7 @@ public class VtnAgendar_Cita extends javax.swing.JFrame
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 430, -1, -1));
 
         horaCita.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        horaCita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "9:00 a.m.", "9:30 a.m.", "10:00 a.m.", "10:30 a.m.", "11:00 a.m.", "11:30 a.m.", "12:00 p.m.", "12:30 p.m.", "1:00 p.m.", "1:30 p.m.", "2:00 p.m.", "2:30 p.m.", "3:00 p.m.", "3:30 p.m.", "4:00 p.m.", "4:30 p.m.", " " }));
+        horaCita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "9:00 a.m.", "9:30 a.m.", "10:00 a.m.", "10:30 a.m.", "11:00 a.m.", "11:30 a.m.", "12:00 p.m.", "12:30 p.m.", "1:00 p.m.", "1:30 p.m.", "2:00 p.m.", "2:30 p.m.", "3:00 p.m.", "3:30 p.m.", "4:00 p.m.", "4:30 p.m." }));
         jPanel1.add(horaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 450, 80, -1));
 
         Aceptar.setBackground(new java.awt.Color(153, 153, 255));
@@ -302,7 +302,7 @@ public class VtnAgendar_Cita extends javax.swing.JFrame
                 SalirActionPerformed(evt);
             }
         });
-        jPanel1.add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(572, 10, 110, -1));
+        jPanel1.add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(562, 10, 140, -1));
 
         jLabel20.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel20.setText("Ingrese su CVE:");

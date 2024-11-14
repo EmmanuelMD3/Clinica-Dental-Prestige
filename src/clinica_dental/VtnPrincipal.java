@@ -101,7 +101,7 @@ public class VtnPrincipal extends javax.swing.JFrame
         jPanel5.setBackground(new java.awt.Color(102, 102, 255));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/foto clientes.jpeg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Spot campaña Sonríe de nuevo.gif"))); // NOI18N
         jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 530, 340));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
@@ -207,6 +207,7 @@ public class VtnPrincipal extends javax.swing.JFrame
 
         jLabel23.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel23.setText("Historial Consultas");
+        jLabel23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel23.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
@@ -216,11 +217,13 @@ public class VtnPrincipal extends javax.swing.JFrame
         });
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 20, 170, -1));
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 600));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 590));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 600));
 
         jMenu1.setText("Informacion");
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
@@ -230,7 +233,16 @@ public class VtnPrincipal extends javax.swing.JFrame
         });
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Cerrar Secion");
+        jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -263,6 +275,12 @@ public class VtnPrincipal extends javax.swing.JFrame
     {//GEN-HEADEREND:event_jMenu1MouseClicked
         new VtnInformacion().setVisible(true);
     }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenu2MouseClicked
+    {//GEN-HEADEREND:event_jMenu2MouseClicked
+        dispose();
+        new VtnIncio_Secion().setVisible(true);
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
      * @param args the command line arguments

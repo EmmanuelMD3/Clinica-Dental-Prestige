@@ -169,7 +169,6 @@ public class VtnMostrarConsultas extends javax.swing.JFrame
     }//GEN-LAST:event_buscarActionPerformed
     private void buscarConsultas(Consulta[][] matriz, Usuario[] usuarios)
     {
-        // Limpiar la tabla antes de mostrar nuevos datos
         tableModel.setRowCount(0);
 
         try
@@ -191,7 +190,7 @@ public class VtnMostrarConsultas extends javax.swing.JFrame
                         for (Consulta consulta : matriz[i])
                         {
                             if (consulta != null)
-                            { // Verificar que la consulta no sea null
+                            { 
                                 Object[] rowData =
                                 {
                                     usuarios[i].getNombre(),

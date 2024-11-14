@@ -5,6 +5,8 @@
 package clinica_dental;
 
 import cjb.ci.Mensaje;
+import java.awt.Image;
+import java.awt.Toolkit;
 import pckBakcend.Informacion;
 import pckBakcend.Usuario;
 
@@ -21,6 +23,14 @@ public class VtnInformacion extends javax.swing.JFrame
     public VtnInformacion()
     {
         initComponents();
+        setIconImage(getIconImage());
+    }
+    
+     @Override
+    public Image getIconImage()
+    {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/Logo.png"));
+        return retValue;
     }
 
     /**
@@ -72,6 +82,7 @@ public class VtnInformacion extends javax.swing.JFrame
         muestraCVE = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Clinica Dental Prestige");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
