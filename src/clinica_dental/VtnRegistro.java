@@ -13,6 +13,9 @@ import static clinica_dental.VtnIncio_Secion.pagoRealizado;
 import static clinica_dental.VtnIncio_Secion.usuario;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.ObjectInputStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import static pckBakcend.PrbClinicaDental.crearMatrizConsulta;
@@ -367,6 +370,27 @@ public class VtnRegistro extends javax.swing.JFrame
     {//GEN-HEADEREND:event_masculinoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_masculinoActionPerformed
+
+    public static Object[] cargarArreglo(String nombreArchivo)
+    {
+        try
+        {
+            FileInputStream fis = new FileInputStream("ArchivosClinicaDental/" + nombreArchivo);
+
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            Object[] arr = (Object[]) ois.readObject();
+            ois.close();
+            return arr;
+        } catch (FileNotFoundException e)
+        {
+            System.out.println("Archivo no encontrado: " + nombreArchivo);
+            return null;
+        } catch (Exception e)
+        {
+            System.out.println("Error al leer el archivo: " + e);
+            return null;
+        }
+    }
 
     /**
      * @param args the command line arguments

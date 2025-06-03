@@ -22,7 +22,7 @@ public class Archivos
     {
         try
         {
-            FileOutputStream fos = new FileOutputStream("../ArchivosClinicaDental/" + s);
+            FileOutputStream fos = new FileOutputStream("./ArchivosClinicaDental/" + s);
             ObjectOutputStream arch = new ObjectOutputStream(fos);
             arch.writeObject(obj);
             arch.close();
@@ -40,7 +40,7 @@ public class Archivos
     {
         try
         {
-            FileOutputStream fos = new FileOutputStream("../ArchivosClinicaDental/" + s);
+            FileOutputStream fos = new FileOutputStream("./ArchivosClinicaDental/" + s);
             ObjectOutputStream arch = new ObjectOutputStream(fos);
             arch.writeObject(obj);
             arch.close();
@@ -59,7 +59,7 @@ public class Archivos
         Object obj = null;
         try
         {
-            FileInputStream fis = new FileInputStream("../ArchivosClinicaDental/" + s);
+            FileInputStream fis = new FileInputStream("./ArchivosClinicaDental/" + s);
             ObjectInputStream arch = new ObjectInputStream(fis);
             obj = arch.readObject();
             arch.close();
@@ -80,7 +80,7 @@ public class Archivos
         Object obj = null;
         try
         {
-            FileInputStream fis = new FileInputStream("../ArchivosClinicaDental/" + s);
+            FileInputStream fis = new FileInputStream("./ArchivosClinicaDental/" + s);
             ObjectInputStream arch = new ObjectInputStream(fis);
             obj = (Object[]) arch.readObject();
             arch.close();
@@ -99,7 +99,7 @@ public class Archivos
     {
         try
         {
-            FileOutputStream fos = new FileOutputStream("../ArchivosClinicaDental/" + s);
+            FileOutputStream fos = new FileOutputStream("./ArchivosClinicaDental/" + s);
             ObjectOutputStream arch = new ObjectOutputStream(fos);
             arch.writeObject(obj);
             arch.close();
@@ -117,7 +117,7 @@ public class Archivos
         Object obj[][] = null;
         try
         {
-            FileInputStream fis = new FileInputStream("../ArchivosClinicaDental/" + s);
+            FileInputStream fis = new FileInputStream("./ArchivosClinicaDental/" + s);
             ObjectInputStream arch = new ObjectInputStream(fis);
             obj = (Object[][]) arch.readObject();
             arch.close();
